@@ -1,0 +1,37 @@
+---
+export interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+import "../styles/global.css";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <header class="bg-gray-900 text-white p-4 fixed w-full top-0">
+        <nav class="flex justify-center space-x-4">
+            <a href="/" class="hover:text-gray-300">Home</a>
+            <a href="/projects/karet-website/" class="hover:text-gray-300">Project</a>
+            <a href="/meta/" class="hover:text-gray-300">Meta</a>
+        </nav>
+    </header>
+
+    <main class="mt-16 max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+        <slot />
+    </main>
+
+    <footer class="text-center py-4 bg-gray-900 text-white mt-8">
+        <p>© {new Date().getFullYear()} Karet</p>
+    </footer>
+
+</body>
+</html>
+
